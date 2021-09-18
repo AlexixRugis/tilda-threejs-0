@@ -1,20 +1,27 @@
-<div id="d"></div>
-<canvas id="c" style="touch-action: none;"></canvas>
+<div id="d" class="margin: 3">gnerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii<br>
+    iiiiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii<br>
+    iiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii<br>
+    inognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinognerignri<br>
+    iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinognerignriiiiiiiiiiiii<br>
+    iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiiiiii<br>
+    iiiiiiiiiiiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiin<br>
+    ognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinognerignriiiiiiiii<br>
+    iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiii<br>
+    iiiiiiiiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinognerignri<br>
+    iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiii<br>
+    iiiiiiiiiiiiiiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinogne<br>
+    rignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinognerignriiiiiiiiiiiiiiiiiii<br>
+    iiiiiiiiiiiiiiiiiiiiiiiiinognerignriiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiino</div>
+<canvas id="c"></canvas>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r92/examples/js/controls/OrbitControls.js"></script>
 
 <script>
-
-    var vp = document.createElement('meta');
-    vp.name = "viewport";
-    vp.content = "width=device-width; user-scalable=no;";
-    document.getElementsByTagName('head')[0].appendChild(vp);
-
-    const debugText = document.querySelector("#d");
-
     let camera, scene, renderer, light, cube, sphere;
+
+    const canvas = document.querySelector("#c");
 
     let normals = new Array();
     let planes = new Array();
@@ -55,7 +62,7 @@
         document.addEventListener("touchmove", onmove, { passive: false });
     }
 
-    document.onpointerdown = onstart;
+    canvas.onpointerdown = onstart;
     document.onpointerup = onend;
     document.ontouchend = onend;
 
@@ -67,7 +74,8 @@
 
     function init() {
         renderer = new THREE.WebGLRenderer({
-            antialias: true
+            antialias: true,
+            canvas: canvas
         });
         scene = new THREE.Scene();
         camera = new THREE.PerspectiveCamera(50.0, window.innerWidth / window.innerHeight, 0.1, 1000);
