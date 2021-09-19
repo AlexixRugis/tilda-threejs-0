@@ -62,7 +62,7 @@
         document.addEventListener("touchmove", onmove, { passive: false });
     }
 
-    canvas.onpointerdown = onstart;
+    document.onpointerdown = onstart;
     document.onpointerup = onend;
     document.ontouchend = onend;
 
